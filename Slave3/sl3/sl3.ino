@@ -105,9 +105,6 @@ void RevRequest(){
       for (int i = 1; i <= 4; i++) {
         if ( (message.connectingToMaster[i-1] == 0) && (message.ID != i) && (idOfFather != i) ) {
           ResponseStatus rs1 = e32ttl.sendFixedMessage(0x00, i+1, 0x03, &message, sizeof(Message));
-//          while(runEvery(30000) == 0) {
-//            RevMess();
-//          }
           int cnt=0;
           while (cnt != 3000) {
             cnt++;
