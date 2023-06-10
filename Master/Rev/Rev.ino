@@ -122,36 +122,8 @@ void loop()
         ResponseStatus rs = e32ttl.sendFixedMessage(0x00, i+1, 0x03, &message, sizeof(Message));  //send data request package 
         while(runEvery(60000) == 0) {
           RevMess();
-//          if(sl3==1 && sl4==1)
-//          {
-//            //if(sl3==1)
-//            //{  
-//              sl3=0;
-//              delay(2500);
-//              updateValue(96);
-//            //}
-//            //else if(sl4==1)
-//            //{
-//              sl4=0;
-//              delay(2800);
-//              updateValue(128);
-//            //}
-//          }
         }
       }
-      /*
-      else
-      {
-        ResponseStatus rs = e32ttl.sendFixedMessage(0x00, i+1, 0x03, &message, sizeof(Message));    
-        while(runEvery(10000) == 0) {
-          RevACK();
-          if (isACK) {
-            isACK = 0;
-            break;
-          }
-        }
-      }
-      */
     }
   } 
 }
@@ -222,13 +194,11 @@ void RevMess() {
     else if (rxMess.ID == 3)
     {
       updateValue(96);    
-      //sl3=1; 
        id = "Slave 3";
     } 
     else if (rxMess.ID == 4)
     {
       updateValue(128);
-      //sl4=1; 
        id = "Slave 4";
     }
     
